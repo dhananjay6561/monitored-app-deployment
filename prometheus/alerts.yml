@@ -1,0 +1,12 @@
+groups:
+  - name: app
+    rules:
+      - alert: AppDown
+        # "up" is 0 when Prometheus can't scrape the target
+        expr: up{job="app"} == 0
+        for: 1m   # must stay down for 1 minute before firing
+        labels:
+          severity: critical
+        annotations:
+          summary: "App is down"
+          description: "Prometheus has not been able to scrape the app for more than 1 minute."
