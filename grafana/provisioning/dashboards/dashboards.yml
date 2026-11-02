@@ -1,0 +1,9 @@
+apiVersion: 1
+
+# Tells Grafana to load every dashboard JSON file in this folder on startup
+providers:
+  - name: default
+    folder: ""
+    type: file
+    options:
+      path: /etc/grafana/provisioning/dashboards
