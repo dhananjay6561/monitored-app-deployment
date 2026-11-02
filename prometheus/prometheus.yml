@@ -1,0 +1,17 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s   # how often alert rules are checked
+
+rule_files:
+  - /etc/prometheus/alerts.yml
+
+scrape_configs:
+  # The Express app; /metrics is the default path
+  - job_name: app
+    static_configs:
+      - targets: ["app:3000"]
+
+  # Host CPU / memory / disk metrics
+  - job_name: node-exporter
+    static_configs:
+      - targets: ["node-exporter:9100"]
