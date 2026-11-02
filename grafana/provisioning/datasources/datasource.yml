@@ -1,0 +1,9 @@
+apiVersion: 1
+
+datasources:
+  - name: Prometheus
+    type: prometheus
+    uid: prometheus          # fixed id so the dashboard JSON can refer to it
+    access: proxy            # Grafana's backend makes the requests, not the browser
+    url: http://prometheus:9090
+    isDefault: true
