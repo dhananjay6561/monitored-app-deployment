@@ -93,6 +93,7 @@ flowchart LR
 │   └── dashboards/
 │       ├── dashboards.yml          # Dashboard loader
 │       └── app-overview.json       # CPU, memory, request rate panels
+├── docs/screenshots/              # Images used in this README
 ├── docker-compose.yml
 └── README.md
 ```
@@ -213,11 +214,21 @@ Observed result: pending at about 20s, firing at about 80s, and `curl localhost:
 
 ## Screenshots
 
-> _Add screenshots here._
+### Grafana: App Overview dashboard
+CPU and memory from Node Exporter, request rate per route from the app. The gap in the request-rate panel is the app being stopped during the alert test.
 
-| View | Screenshot |
-|---|---|
-| Grafana: App Overview dashboard | _coming soon_ |
-| Prometheus: Targets (both UP) | _coming soon_ |
-| Prometheus: `AppDown` alert firing | _coming soon_ |
-| GitHub Actions: successful pipeline run | _coming soon_ |
+![Grafana dashboard](docs/screenshots/grafana.png)
+
+### Prometheus: both targets UP
+
+![Prometheus targets](docs/screenshots/targets.png)
+
+### Prometheus: AppDown alert firing
+Taken after the app container had been stopped for more than 1 minute.
+
+![AppDown alert firing](docs/screenshots/alert.png)
+
+### GitHub Actions: pipeline run
+Tests, image build, Trivy scan and push to GHCR all passing.
+
+![CI pipeline](docs/screenshots/ci.png)
